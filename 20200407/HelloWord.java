@@ -31,10 +31,6 @@ public class HelloWord{
          greeting =greeting.substring(0,3)+"p !";
          System.out.println(greeting);
          
-         char* temp = malloc(6);
-         strncpy(temp,greeting,3);
-         strncpy(tmp+3,"p!",3);
-         greeting = temp;
-
+      
 	}
 }
