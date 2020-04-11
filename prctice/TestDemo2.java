@@ -1,13 +1,62 @@
 import java.util.Scanner;
 import java.util.Random;
 public class TestDemo2{
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	int n = sc.nextInt();
+	while(n != 0){
+		
+	}
+}
+
+
+public static void main16(String[] args) {
+	int n = 1;
+	for(n = 1;n <= 100;n++){
+		int i = 2;
+		for(i = 2;i <=Math.sqrt(n);i++){
+			if(n%i==0){
+				break;
+			}
+		}
+		if(i>Math.sqrt(n)){
+			System.out.println(n+"是素数");
+		}
+	}
+}
+
+
+
+public static void main15(String[] args) {
+	for(int n = 1; n <= 999999;n++){
+		int count = 0;
+		//求位数
+		int tmp = n;
+		while(tmp != 0){
+			count++;
+			tmp = tmp/10; 
+		}
+		tmp = n;
+		int sum = 0;
+		while(tmp != 0){
+			sum += Math.pow(tmp%10,count);
+			tmp = tmp/10;
+		}
+		if(sum == n){
+			System.out.println(sum+"is my result!");
+		}
+	}
+}
+
+
+
 public static void main14(String[] args) {
-	Random random = new Random();
+	Random random = new Random();//如果给定时间戳则随机值不变
 	Scanner sc = new Scanner(System.in);
 	int toGess = random.nextInt(100);
 	while(true){
 		System.out.println("请输入你要猜的数字：（1-100）");
-		int sssssnum = sc.nextInt();
+		int num = sc.nextInt();
 		if(num<toGess){
 			System.out.println("猜小了");
  		}
@@ -78,8 +127,8 @@ public static void main10(String[] args) {
 		Scanner num = new Scanner(System.in);
 		System.out.println("请输入密码：");
 		String number = num.nextLine();
-		if("123456"==number){
-			System.out.println("密码正确");
+		if(number.equals("123456")){
+			System.out.println("密码正确,登录成功");
 			break;
 		}
 		else{
@@ -133,29 +182,29 @@ public static void main7(String[] args) {
 
 
 public static void main6(String[] args) {
-	int a = 8;
-	int b = 24;
+	Scanner sc = new Scanner(System.in);
+	int a = sc.nextInt();
+	int b = sc.nextInt();
+	int tmp = (a>b?b:a);
 	while(a%b!=0){
-		int tmp = a%b;
+	    tmp = a%b;
 		a = b;
 		b = tmp;
 	}
-	System.out.println("最大公约数为："+b);
+	System.out.println("最大公约数为："+tmp);
 }
 
 
 public static void main5(String[] args) {
-int line = 9;
-for(int i = 1;i<=line;i++){
-	for(int j=1;j<=i;j++){
-		System.out.print(j);
-		System.out.print("*");
-		System.out.print(i);
-		System.out.print("=");
-		System.out.print(i*j+"  ");
-	}
-		System.out.print("\n");
-}
+    int line = 9;
+    for(int i = 1;i<=line;i++){
+
+	    for(int j=1;j<=i;j++){
+		
+		System.out.print(j+"*"+i+"="+i*j+" ");
+	    }
+		System.out.println();
+    }
 }
 
 
@@ -174,16 +223,15 @@ public static void main4(String[] args) {
 
 
 public static void main3(String[] args) {
-        	System.out.println(1);
-        	int count = 1;
+    int count = 1;
 	for(int n = 1;n<=100;n++){
-		int i = 0;
-		for( i = 2; i < n; i++){
+		int i = 2;
+		for(; i <= (int)Math.sqrt(n); i++){
             if(n%i == 0){
         	break;
             }
         }
-        if(i==n){
+        if(i > (int)Math.sqrt(n)){
         	System.out.print(n);
         	System.out.print(" ");
         	count++;
@@ -195,14 +243,15 @@ public static void main3(String[] args) {
 
 
 public static void main2(String[] args) {
-	int n = 22;
+	Scanner sc = new Scanner(System.in);
+	int n = sc.nextInt();
 	int i = 0;
-	    for(i = 2; i < n; i++){
-            if(n%i == 0){
+	    for(i = 2; i <= (int)Math.sqrt(n); i++){
+            if(n % i == 0){
         	break;
             }
 	    }
-	if(i==n){
+	if(i==(int)Math.sqrt(n)){
 	    	System.out.println("是素数");
     }
     else
@@ -211,8 +260,8 @@ public static void main2(String[] args) {
 
 
 	public static void main1(String[] args) {
-		int age = 23;
-		System.out.println(age);
+		Scanner sc = new Scanner(System.in);
+		int age = sc.nextInt();
 		if(age <= 18){
 			System.out.println("当前年龄是：少年");
 		}
