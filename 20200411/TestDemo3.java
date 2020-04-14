@@ -1,20 +1,44 @@
+import java.util.Arrays;
 import java.util.Scanner;
 public class TestDemo3{
 
-public static void main(String[] args) {
+	public static void main12(String[] args) {
+		int[] array = {1,2,3,4,5,6,7,8,9,10};
+		swap1(array);
+		String ret = Arrays.toString(array);
+		System.out.println(ret);
+	}
+	public static void swap1( int arr[]){
+		int len = arr.length;
+		int left = 0;
+		int right = len-1;
+		while(left < right){
+			while(arr[left]%2 != 0){
+				left++;
+			}
+			while(arr[right]%2 == 0){
+				right--;
+			}
+			if(left < right){
+				int tmp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = tmp;
+			}
+		}
+	}
+
+
+public static void main11(String[] args) {
 	Scanner sc = new Scanner(System.in);
 	int num4 = sc.nextInt();
 	int ret5 = fib(num4);
 	System.out.println(ret5);
 }
 public static int fib(int num4){
-	if(num4 <= 2){
-		return 1;
-	}
 	int last1 = 1;
 	int last2 = 1;
-	int cur = 0;
-	for(int i = 3;i < = num4;i++){
+	int cur = 1;
+	for(int i = 3;i <= num4;i++){
 		cur = last1 + last2;
 		last1 = last2;
 		last2 = cur;
@@ -85,16 +109,25 @@ public static double add1(double x,double y){
 
 
 public static void main6(String[] args) {
-	int n = 5;
+	Scanner sc = new Scanner(System.in);
+	int n = sc.nextInt();
 	int ret = factor1(n);
 	System.out.println("ret = "+ret);
 }
-public static int factor1(int n){
-	if(n==1){
+public static int factor1(int n) {
+	int sum = 0;
+	for (int i = 1; i <= n; i++) {
+		sum+=factor2(i);
+	}
+	return sum;
+}
+public static int factor2(int n){
+	if(n == 1){
 		return 1;
 	}
-	return n*factor1(n-1);
+	return n*factor2(n-1);
 }
+
 
 
 	public static void main5(String[] args) {
