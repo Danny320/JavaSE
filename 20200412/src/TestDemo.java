@@ -2,7 +2,6 @@ import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;
-
 public class TestDemo {
 
     public static void main2(String[] args) {
@@ -10,7 +9,6 @@ public class TestDemo {
         int tar = sc.nextInt();
         int ret = jumpFloor(tar);
         System.out.println(ret);
-
     }
     public static int jumpFloor(int target){
         if(target == 1){
@@ -36,7 +34,11 @@ public class TestDemo {
         System.out.print(pos1+"->"+pos2+" ");
     }
     public static void main(String[] args) {
-    hanoi(3,'A','B','C');
+        hanoi(1,'A','B','C');
+        System.out.println();
+        hanoi(2,'A','B','C');
+        System.out.println();
+        hanoi(3,'A','B','C');
     }
 }
 
