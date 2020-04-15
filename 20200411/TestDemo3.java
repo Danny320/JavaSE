@@ -13,10 +13,10 @@ public class TestDemo3{
 		int left = 0;
 		int right = len-1;
 		while(left < right){
-			while(arr[left]%2 != 0){
+			while(left < right && arr[left]%2 != 0){
 				left++;
 			}
-			while(arr[right]%2 == 0){
+			while(left < right && arr[right]%2 == 0){
 				right--;
 			}
 			if(left < right){
