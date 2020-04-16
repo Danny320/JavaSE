@@ -22,13 +22,11 @@ public class ShuZu {
         }
         ret +="]";
         return ret;
-
     }
     public static void main5(String[] args) {
         int[] array = {12,34,1,6,2,9,21};
         String ret = myToString(array);
         System.out.println(ret);
-
     }
 
 
