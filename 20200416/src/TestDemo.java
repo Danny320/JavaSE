@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @time: 18:34
  **/
 class Person {
-    //字段->成员变量   定义在方法外面
+    //字段->成员变量  定义在方法外面
     //实例成员变量  对象的里面
    private String name;
     private int age;
