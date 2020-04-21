@@ -62,7 +62,6 @@ public class MyLinkedList {
         cur.next = node;
 
 
-
     }
     private Node searchIndex(int index) {
         if(index < 0 || index > size()) {
