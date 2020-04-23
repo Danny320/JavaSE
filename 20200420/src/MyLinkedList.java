@@ -1,3 +1,5 @@
+import java.security.PublicKey;
+
 /**
  * Created with Intellij IDEA
  *
@@ -94,23 +96,57 @@ public class MyLinkedList {
 
     //删除第一次出现关键字为key的节点
     public void remove(int key){
-        Node cur = this.head;
-        if(cur.data == key) {
-            head = cur.next;
+        if(this.head == null) {
             return;
         }
-        while (cur != null) {
-            cur = cur.next;
+        //删除的是不是头结点
+        if(this.head.data == key) {
+            this.head = this.head.next;
+            return;
         }
-        while (cur.data == key) {
-
+        //找到删除节点的前驱
+        Node prev = searchPrev(key);
+        if(prev == null) {
+            System.out.println("没有这个节点");
+            return;
         }
+        //开始删除
+        prev.next = prev.next.next;
+    }
+    private Node searchPrev(int key) {
+        Node prev = this.head;
+        while (prev.next != null) {
+            if (prev.next.data == key) {
+                return prev;
+            } else {
+                prev = prev.next;
+            }
+        }
+        return null;
     }
 
 
-    //删除所有值为key的节点
-    public void removeAllKey(int key){
 
+    //删除所有值为key的节点
+    public Node removeAllKey(int key){
+        if(this.head == null) {
+            return null;
+        }
+        Node cur = head.next;//代表要删除的节点
+        Node prev = this.head;
+        while(cur != null) {
+            if(cur.data == key) {
+                prev.next = cur.next;
+                cur = cur.next;
+            }else {
+                prev = cur;
+                cur = cur.next;
+            }
+        }
+        if(this.head.data == key) {
+            this.head = this.head.next;
+        }
+        return head;
     }
 
 
@@ -126,6 +162,7 @@ public class MyLinkedList {
     }
 
 
+    //打印链表
     public void display(){
         Node cur = this.head;
         while(cur != null) {
@@ -137,6 +174,41 @@ public class MyLinkedList {
 
     public void clear(){
 
+    }
+
+
+
+    //找中间位置的节点
+    public Node middleNode() {
+        int prev = size()/2;
+        Node cur = this.head;
+        while (prev != 0) {
+            cur = this.head.next;
+            prev--;
+        }
+        return cur;
+    }
+    public Node middleNode2() {
+        Node fast = this.head;
+        Node slow = this.head;
+        while (fast != null && fast.next !=null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+
+
+    //找倒数第K个节点
+    public Node FindKthToTail(int k) {
+        int ret = size() - k;
+        Node cur = this.head;
+        while(ret != 0) {
+            cur = cur.next;
+            ret--;
+        }
+        return cur;
     }
 
 }

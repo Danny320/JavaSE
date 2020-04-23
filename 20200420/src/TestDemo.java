@@ -11,12 +11,16 @@ public class TestDemo {
     public static void main(String[] args) {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.addFirst(77);
-        myLinkedList.addFirst(78);
+        myLinkedList.addFirst(77);
         myLinkedList.addFirst(79);
         myLinkedList.addFirst(80);
-        myLinkedList.addFirst(81);
+        myLinkedList.addFirst(77);
         myLinkedList.display();
         System.out.println(myLinkedList.contains(80));
         System.out.println(myLinkedList.size());
+        myLinkedList.removeAllKey(77);
+        myLinkedList.display();
+        myLinkedList.remove(80);
+        myLinkedList.display();
     }
 }
