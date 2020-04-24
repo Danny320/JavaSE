@@ -202,13 +202,20 @@ public class MyLinkedList {
 
     //找倒数第K个节点
     public Node FindKthToTail(int k) {
-        int ret = size() - k;
-        Node cur = this.head;
-        while(ret != 0) {
-            cur = cur.next;
-            ret--;
+        Node fast = this.head;
+        Node slow = this.head;
+        while(k-1 > 0) {
+            if(fast.next != null){
+                fast = fast.next;
+                k--;
+            }else {
+                System.out.println("k的值不合法！");
+            }
         }
-        return cur;
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
     }
-
 }
