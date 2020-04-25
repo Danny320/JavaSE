@@ -8,6 +8,8 @@
  * @time: 19:52
  **/
 public class TestDemo {
+    public boolean hasCycle() {
 
+    }
 
 }
