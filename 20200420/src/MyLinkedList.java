@@ -169,13 +169,13 @@ public class MyLinkedList {
             System.out.print(cur.data+" ");
             cur = cur.next;
         }
+        System.out.println();
     }
 
-
-    public void clear(){
-
-    }
-
+   /**
+    *释放内存的。
+    */
+    public void clear(){this.head = null;}
 
 
     //找中间位置的节点
@@ -260,5 +260,123 @@ public class MyLinkedList {
             fast = fast.next;
         }
         return slow;
+    }
+
+
+
+    public void display2(Node newHead) {
+        Node cur = newHead;
+        while(cur != null) {
+            System.out.print(cur.data + " ");
+            cur = cur.next;
+        }
+        System.out.println();
+    }
+
+
+
+    public Node partition(int x) {
+        Node bs = null;
+        Node be = null;
+        Node as = null;
+        Node ae = null;
+        Node cur = this.head;
+        while (cur != null) {
+            if(cur.data < x) {
+                //第一次插入
+                if(bs == null) {
+                    bs = cur;
+                    be = cur;
+                }else {
+                    be.next = cur;
+                    be = be.next;
+                }
+            }else {
+                //第一次插入
+                if(as == null) {
+                    as = cur;
+                    ae = cur;
+                }else {
+                    ae.next = cur;
+                    ae = ae.next;
+                }
+            }
+            cur = cur.next;
+        }
+        //1.判断bs是否为空  如果bs == null 返回as
+        if(bs == null) {
+            return as;
+        }
+        //2、如果bs不为空  需要进行拼接
+        be.next = as;
+        //3、如果ae不为空    ae的next需要置为空
+        if(ae != null) {
+            ae.next = null;
+        }
+        return bs;
+    }
+
+    //删除重复节点
+    public Node deleteDuplication() {
+        Node cur = this.head;
+        Node newHead = new Node(-1);
+        Node tmp = newHead;
+        while(cur != null) {
+            if(cur.next != null && cur.data == cur.next.data) {
+                while (cur.next != null && cur.data == cur.next.data) {
+                    cur = cur.next;
+                }
+                cur = cur.next;
+            }else {
+                tmp.next = cur;
+                tmp = tmp.next;
+                cur = cur.next;
+            }
+        }
+        tmp.next = null;
+        return newHead.next;
+    }
+
+
+
+    //判断是否是回文结构
+    public boolean chkPalindrome() {
+        //单链表为空不是回文结构
+        if(this.head == null) {
+            return false;
+        }
+        //单链表只有头结点必为回文结构
+        if(this.head.next == null) {
+            return true;
+        }
+        //1，找到单链表的中间节点
+        Node fast = this.head;
+        Node slow = this.head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        //2,反转单链表的后半部分
+        Node cur = slow.next;
+        if (cur != null) {
+            Node curNext = cur.next;
+            cur.next = slow;
+            slow = cur;
+            cur = curNext;
+        }
+        //slow是最后一个节点了
+        //3，开始一个从头走一个从尾走
+        while (slow != this.head) {
+            if(slow.data != this.head.data) {
+                return false;
+            }
+            //判断偶数的情况
+            if(this.head.next == slow) {
+                return true;
+            }
+            slow = slow.next;
+            this.head = this.head.next;
+        }
+        return true;
     }
 }

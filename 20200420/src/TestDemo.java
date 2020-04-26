@@ -68,14 +68,17 @@ public class TestDemo {
     }
     public static void main(String[] args) {
         MyLinkedList myLinkedList = new MyLinkedList();
-        myLinkedList.addFirst(77);
-        myLinkedList.addFirst(77);
-        myLinkedList.addFirst(79);
-        myLinkedList.addFirst(80);
-        myLinkedList.addFirst(77);
+        myLinkedList.addFirst(63);
+        myLinkedList.addFirst(15);
+        myLinkedList.addFirst(41);
+        myLinkedList.addFirst(3);
+        myLinkedList.addFirst(21);
+        myLinkedList.addFirst(13);
         myLinkedList.display();
         MyLinkedList myLinkedList2 = new MyLinkedList();
         //Node ret = getIntersectionNode(myLinkedList.head,myLinkedList2.head) ;
-        System.out.println(myLinkedList.FindKthToTail(3).data);
+       // System.out.println(myLinkedList.FindKthToTail(3).data);
+        Node ret = myLinkedList.partition(17);
+        myLinkedList.display2(ret);
     }
 }
