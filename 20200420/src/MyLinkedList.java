@@ -250,7 +250,7 @@ public class MyLinkedList {
                 break;
             }
         }
-        if(fast != null && fast.next != null) {
+        if(fast == null && fast.next == null) {
             return null;
 
         }
@@ -274,7 +274,7 @@ public class MyLinkedList {
     }
 
 
-
+    //链表分割
     public Node partition(int x) {
         Node bs = null;
         Node be = null;
@@ -315,6 +315,8 @@ public class MyLinkedList {
         }
         return bs;
     }
+
+
 
     //删除重复节点
     public Node deleteDuplication() {
