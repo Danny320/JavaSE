@@ -142,6 +142,7 @@ public class MyLinkedList {
                 prev = cur;
                 cur = cur.next;
             }
+            cur = cur.next;
         }
         if(this.head.data == key) {
             this.head = this.head.next;
@@ -380,5 +381,23 @@ public class MyLinkedList {
             this.head = this.head.next;
         }
         return true;
+    }
+
+
+
+    //反转单链表
+    public Node reverseList() {
+        if(this.head == null && this.head.next == null) {
+            return this.head;
+        }
+        Node prve = null;
+        Node cur = this.head;
+        while(cur != null) {
+            Node curNext = cur.next;
+            cur.next = prve;
+            prve = cur;
+            cur = curNext;
+        }
+       return prve;
     }
 }

@@ -75,10 +75,12 @@ public class TestDemo {
         myLinkedList.addFirst(21);
         myLinkedList.addFirst(13);
         myLinkedList.display();
-        MyLinkedList myLinkedList2 = new MyLinkedList();
+        //MyLinkedList myLinkedList2 = new MyLinkedList();
         //Node ret = getIntersectionNode(myLinkedList.head,myLinkedList2.head) ;
        // System.out.println(myLinkedList.FindKthToTail(3).data);
-        Node ret = myLinkedList.partition(17);
-        myLinkedList.display2(ret);
+       // Node ret = myLinkedList.partition(17);
+        //myLinkedList.display2(ret);
+        //myLinkedList.reverseList();
+        myLinkedList.display2(myLinkedList.reverseList());
     }
 }
