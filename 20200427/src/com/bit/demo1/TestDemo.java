@@ -1,12 +1,15 @@
+package com.bit.demo1;
+
 /**
  * Created with Intellij IDEA
  *
  * @program: 20200427
  * @Description:
  * @USer:LD
- * @Date: 2020-04-27 18:37
- * @time: 18:37
+ * @Date: 2020-05-01 21:00
+ * @time: 21:00
  **/
+
 class Animal {
     public String name;
     public Animal(String name) {
@@ -19,7 +22,7 @@ class Animal {
 }
 
 
-class Bird extends Animal{
+class Bird extends Animal {
     public Bird(String name) {
         super(name);
         System.out.println("Bird(string)");
@@ -35,13 +38,12 @@ class Cat extends Animal {
         System.out.println("cat(string)");
     }
 }
-
 public class TestDemo {
     public static void main(String[] args) {
         Cat cat = new Cat("mimi");
         cat.eat();
         Bird bird = new Bird("八哥");
-        bird.fly();
-        bird.eat();
+        bird.fly();//访问自己的
+        bird.eat();//访问父类的
     }
 }
