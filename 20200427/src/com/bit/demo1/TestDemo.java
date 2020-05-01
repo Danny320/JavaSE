@@ -9,7 +9,6 @@ package com.bit.demo1;
  * @Date: 2020-05-01 21:00
  * @time: 21:00
  **/
-
 class Animal {
     public String name;
     public Animal(String name) {
