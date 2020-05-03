@@ -43,8 +43,15 @@ class Flower extends Shape {
     }
 }
 public class TestDemo {
-    public static void main(String[] args) {
-        Shape shape = new Cycle();
+    public static void draw(Shape shape) {
         shape.draw();
+    }
+    public static void main(String[] args) {
+        Shape shape1 = new Cycle();
+        Shape shape2 = new React();
+        Shape shape3 = new Flower();
+        draw(shape1);
+        draw(shape2);
+        draw(shape3);
     }
 }

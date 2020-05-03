@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8ff63a40-b6d0-4a86-a7d2-abba375e6a2a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/TestDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../111/src/TestDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../20200502/out/production/20200502/com/bit/Demo2/TestDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../20200502/out/production/20200502/com/bit/Demo2/TestDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../20200502/out/production/20200502/com/bit/Demo4/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/../20200502/out/production/20200502/com/bit/Demo4/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../20200502/out/production/20200502/com/bit/Demo4/TestDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../20200502/out/production/20200502/com/bit/Demo4/TestDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../20200502/src/com/bit/Demo/TestDemo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../20200502/src/com/bit/Demo/TestDemo2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../20200502/src/com/bit/Demo2/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../20200502/src/com/bit/Demo2/TestDemo.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bODz8HclDHPaFM01EoqvHG47rV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="TestDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestDemo" />
+      <module name="20200503" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestDemo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ff63a40-b6d0-4a86-a7d2-abba375e6a2a" name="Default Changelist" comment="" />
+      <created>1588494505299</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588494505299</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="918" height="208" key="GridCell.Tab.0.bottom" timestamp="1588494569346">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="918" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588494569346" />
+    <state width="918" height="208" key="GridCell.Tab.0.center" timestamp="1588494569346">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="918" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588494569346" />
+    <state width="918" height="208" key="GridCell.Tab.0.left" timestamp="1588494569346">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="918" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588494569346" />
+    <state width="918" height="208" key="GridCell.Tab.0.right" timestamp="1588494569346">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="918" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588494569346" />
+    <state x="282" y="45" key="new project wizard" timestamp="1588494568022">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="282" y="45" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1588494568022" />
+  </component>
+</project>

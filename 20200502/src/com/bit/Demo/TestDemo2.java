@@ -41,7 +41,7 @@ public class TestDemo2 {
      * 什么是多态
      * 1，父类引用 引用子类对象
      * 2，父类和子类有同名的覆盖方法
-     * 3，通过父类引用引用这个重写的方法的时候。
+     * 3，通过父类引用 引用这个重写的方法的时候。
      * @param
      */
     public static void drawShapes() {
