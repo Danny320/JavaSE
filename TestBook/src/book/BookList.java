@@ -23,7 +23,15 @@ public class BookList {
     //我们可以把所有的操作 都写到这个类当中 因为每一个操作都是操作books。
 
    public void setBooks(int pos,Book book) {this.books[pos] = book;}
-   
+
+    public Book getBook(int pos) {
+        return this.books[pos];
+    }
+
+    public int getUsedSize() {
+        return usedSize;
+    }
+
     public void setUsedSize(int usedSize) {
         this.usedSize = usedSize;
     }
