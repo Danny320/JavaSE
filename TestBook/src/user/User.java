@@ -1,5 +1,8 @@
 package user;
 
+import book.BookList;
+import operation.IOperation;
+
 /**
  * Created with Intellij IDEA
  *
@@ -11,9 +14,10 @@ package user;
  **/
 public abstract class User {
     public String name;
-
-    public User(String name) {
-        this.name = name;
+    protected IOperation[] operations;
+    public User(String name) { this.name = name; }
+    public abstract int  menu();
+    public void doOperation(BookList bookList,int choice) {
+        this.operations[choice].work(bookList);
     }
-    public abstract int menu();
 }

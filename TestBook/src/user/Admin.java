@@ -2,6 +2,8 @@ package user;
 
 import operation.*;
 
+import java.util.Scanner;
+
 /**
  * Created with Intellij IDEA
  *
@@ -20,7 +22,7 @@ public class Admin extends User{
                 new AddOperation(),
                 new DelOpreation(),
                 new DisplayOperation()
-        }
+        };
     }
 
     @Override
@@ -33,6 +35,8 @@ public class Admin extends User{
         System.out.println("4.显示所有图书");
         System.out.println("0.退出系统");
         System.out.println("=====================");
-     return 0;
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        return  choice;
     }
 }

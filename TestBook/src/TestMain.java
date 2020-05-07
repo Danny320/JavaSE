@@ -20,7 +20,7 @@ public class TestMain {
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入姓名：");
         String name = scanner.nextLine();
-        System.out.println("请输入你的身份：》管理员，2-》普通用户");
+        System.out.println("请输入你的身份：1-》管理员，2-》普通用户");
         int choice = scanner.nextInt();
         if(choice == 1) {
             return new Admin(name);
@@ -33,8 +33,10 @@ public class TestMain {
         BookList bookList = new BookList();
         //2,登录
         User user = login();
-        int chioce = user.menu();
-        //选择是几 就可以对应哪个方法了
-        user.doOperation(bookList,chioce);
+        while(true) {
+            int chioce = user.menu();
+//        //选择是几 就可以对应哪个方法了
+            user.doOperation(bookList, chioce);
+        }
     }
 }
