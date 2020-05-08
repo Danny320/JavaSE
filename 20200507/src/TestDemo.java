@@ -1,3 +1,4 @@
+import java.lang.reflect.Field;
 import java.util.Arrays;
 
 /**
@@ -13,7 +14,28 @@ import java.util.Arrays;
 
 public class TestDemo {
 
+
     public static void main(String[] args) {
+
+    }
+
+    public static void main9(String[] args) throws NoSuchFieldException{
+//        //利用反射    自省的过程  通过反射可以修改私有的东西
+//        String str = "Hello";
+//        Class c1 = String.class;
+//        Field field = c1.getDeclaredField("value");
+//        field.setAccessible(true);
+//         char[] val = (char[])field.get(str);
+//         val[0] = 'g';
+//         System.out.println(str);
+    }
+    public static void main8(String[] args) {
+        String str = "Hello";
+        str = "h"+str.substring(1);
+        System.out.println(str);
+    }
+
+    public static void main7(String[] args) {
         String str1 = "hello";
         String str2 = new String("hello").intern();//把当前在常量池当中“hello”的引用返回给str2
         System.out.println(str1==str2);
