@@ -30,7 +30,7 @@ public static String func2(String str ,int n) {
       str = reverse(str,0,str.length()-1);
     return str;
 }
-    public static void main(String[] args) {
+    public static void main9(String[] args) {
         //String str  = "abcdefg";
         //String ret = reverse(str,0,str.length()-1);
        // System.out.println(ret);
@@ -59,9 +59,9 @@ public static String func2(String str ,int n) {
         String ret = func2(str);
         System.out.println(ret);
     }
-    public static void main7(String[] args) {
+    public static void main(String[] args) {
         String str = "name=zhangsan&age=18";
-        String[] strings = str.split("&");//以‘.’号进行分割
+        String[] strings = str.split("&");//以‘&’号进行分割
         for (String s1:strings) {
             String[] strings1 = s1.split("=");
             for (String s:strings1) {
