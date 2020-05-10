@@ -18,6 +18,7 @@ public class TestDemo {
         String str = "asdvdsc$scdfbs&vf'g dgdrs*";
         Scanner scanner = new Scanner(System.in);
         String ch = scanner.nextLine();
+        str.split(" ");
         String[] strings = mySplit(str,ch);
 
 
