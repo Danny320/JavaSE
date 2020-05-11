@@ -15,6 +15,7 @@ public class TestDemo {
         int[] array = {1,2,3};
         try {
             System.out.println(array[4]);
+
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
             System.out.println("捕获到了数组越界异常");
