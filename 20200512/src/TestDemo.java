@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -9,5 +11,12 @@ import java.util.Scanner;
  * @Date: 2020-05-12 15:17
  * @time: 15:17
  **/
-public class TestDemo {
+class Solution {
+    public int findJudge(int N, int[][] trust) {
+        int[][] people = new int[N][2];
+
+        for(int i = 1; i <=N; i++) {
+
+        }
+    }
 }
