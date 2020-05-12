@@ -6,7 +6,7 @@ import java.util.Random;
  * Created with Intellij IDEA
  *
  * @program: 20200511
- * @Description:
+ * @Description:  玩扑克
  * @USer:LD
  * @Date: 2020-05-11 20:05
  * @time: 20:05
