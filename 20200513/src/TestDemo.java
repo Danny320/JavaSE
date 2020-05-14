@@ -11,7 +11,7 @@ import java.util.Stack;
  **/
 public class TestDemo {
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         MyStack<Integer> myStack = new MyStack();
         myStack.push(1);
         myStack.push(2);
@@ -21,11 +21,11 @@ public class TestDemo {
     }
 
 
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
-        stack.push(1);//入栈
-        stack.push(2);//入栈
-        stack.push(3);//入栈
+//        stack.push(1);//入栈
+//        stack.push(2);//入栈
+//        stack.push(3);//入栈
         //stack.pop();//出栈
         stack.peek();//取出栈顶元素
        System.out.println( stack.empty());
