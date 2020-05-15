@@ -11,12 +11,21 @@ import java.util.Scanner;
  * @Date: 2020-05-12 15:17
  * @time: 15:17
  **/
-class Solution {
-    public int findJudge(int N, int[][] trust) {
-        int[][] people = new int[N][2];
+public class TestDemo<T> {
+    T value;
 
-        for(int i = 1; i <=N; i++) {
+    public TestDemo(T value) {
+        this.value = value;
+    }
 
-        }
+    public T getValue() {
+        return value;
+    }
+
+    public static void main(String[] args) {
+        TestDemo<Integer> a = new TestDemo<>(2);
+        System.out.println(a.getValue());
+        TestDemo<Character> ch = new TestDemo<>('h');
+        System.out.println(ch.getValue());
     }
 }
