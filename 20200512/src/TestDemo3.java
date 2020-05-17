@@ -11,23 +11,17 @@ import java.util.List;
  * @Date: 2020-05-15 22:56
  * @time: 22:56
  **/
-class Node {
-    public int data;
-    public Node next;
 
-    public Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-class MyLinkedList {
-   
-}
 public class TestDemo3 {
-    public static void main(String[] args) {
-        List<Integer> list = new LinkedList<>();
-        list.
+    public static String mySplit (String str) {
+       str = "bbb";
+       return str;
     }
+    public static void main(String[] args) {
+        String str = "aaa";
+        String ret = mySplit(str);
+        System.out.println(str);
+        System.out.println(ret);
 
-
+    }
 }
