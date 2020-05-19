@@ -1,3 +1,7 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * Created with Intellij IDEA
  *
@@ -198,5 +202,51 @@ public class BinaryTree {
       return Math.abs(leftHeight - rightHeight) < 2&&
               isBalanced(root.left) &&
               isBalanced(root.right);
+    }
+
+    //层序遍历
+    public void levelOrderTraversal(Node root){
+        if(root == null) return;
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()) {
+            Node cur = queue.poll();
+           System.out.print(cur.val + " ");
+           if(cur.left != null) {
+               queue.offer(cur.left);
+           }
+            if(cur.right != null) {
+                queue.offer(cur.right);
+            }
+        }
+        System.out.println();
+    }
+
+    public List<List<Character>> levelOrder(Node root) {
+        List<List<Character>> ret = new LinkedList<>();
+        if(root == null) return ret;
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            //1、求当前队列的大小  size
+            int size = queue.size();
+            List<Character> list = new LinkedList<>();
+                while(size > 0) {// -->控制当前每一层的数据个数
+                    Node cur = queue.poll();
+                    if(cur != null) {
+                        list.add(cur.val);
+                    }
+                    if(cur.left != null) {
+                        queue.offer(cur.left);
+                    }
+                    if(cur.right != null) {
+                        queue.offer(cur.right);
+                    }
+                    size--;
+                }
+                ret.add(list);
+        }
+        return ret;
     }
 }
