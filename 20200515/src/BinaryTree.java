@@ -222,6 +222,7 @@ public class BinaryTree {
         System.out.println();
     }
 
+
     public List<List<Character>> levelOrder(Node root) {
         List<List<Character>> ret = new LinkedList<>();
         if(root == null) return ret;
