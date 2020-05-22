@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -13,14 +15,36 @@ import java.util.PriorityQueue;
 
 public class TestDemo {
     public static List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-        PriorityQueue<Integer[]> num11 = new PriorityQueue<>();
-        for(int i = 0; i < nums1.length; i++) {
+        // 大顶堆，比较器使用lambda表达式，更简洁
+        PriorityQueue<List<Integer>> queue = new PriorityQueue<>(k, (o1, o2)->{
+            return (o2.get(0) + o2.get(1)) - (o1.get(0) + o1.get(1));
+        });
 
+        // 遍历所有可能的集合
+        for(int i = 0; i < Math.min(nums1.length, k); i++){
+            for(int j = 0; j < Math.min(nums2.length, k); j++){
+                // 剪枝，如果当前的两个数之和超过了堆顶元素，由于数组已经排序，后面的元素只会更大，因此无需继续遍历
+                if(queue.size() == k && nums1[i]+nums2[j] > queue.peek().get(0) + queue.peek().get(1)){
+                    break;
+                }
+
+                // 若比堆顶小，则弹出堆顶元素，把当前数对加入
+                if(queue.size() == k){
+                    queue.poll();
+                }
+                List<Integer> pair = new ArrayList<>();
+                pair.add(nums1[i]);
+                pair.add(nums2[j]);
+                queue.add(pair);
+            }
         }
 
-
-
-
+        // 最后将元素弹出，倒序插入数组即可
+        List<List<Integer>> res = new LinkedList<>();
+        for(int i =0; i < k && !queue.isEmpty(); i++){
+            res.add(0, queue.poll());
+        }
+        return res;
     }
 
     public static void main(String[] args) {
