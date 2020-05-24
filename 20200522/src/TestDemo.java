@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * Created with Intellij IDEA
@@ -103,6 +104,7 @@ public class TestDemo {
         }
     }
 
+    
 
     //希尔排序
     public static void shell(int[] array,int gap) {
@@ -150,9 +152,149 @@ public class TestDemo {
             array[j+1] = tmp;
         }
     }
+
+
+    public static int partition(int[] array,int low,int high) {
+        int tmp = array[low];
+        while (low < high) {
+           while (low < high && array[high] >= tmp) {
+               high--;
+           }
+           array[low] = array[high];
+           while (low < high && array[low] <= tmp) {
+               low++;
+           }
+            array[high] = array[low];
+        }
+        array[high] = tmp;
+        return high;
+    }
+
+    public static void quick(int[] array,int left,int right) {
+        if(left >= right) {
+            return;
+        }
+
+       int par = partition(array,left,right);
+        quick(array,left,par-1);
+        quick(array,par+1,right);
+    }
+    //时间复杂度：nlogn
+    //空间复杂度：logn
+    public static void quickSort(int[] array) {
+        quick(array,0,array.length-1);
+    }
+
+    public static void three_num_mid(int[] array,int left,int right) {
+        //array[mid] <= array[left] <= array[high]
+        int mid = (left+right)/2;
+        if(array[mid] > array[right]) {
+            swap(array,mid,right);
+        }
+        if(array[mid] > array[left]) {
+            swap(array,mid,left);
+
+        }
+        if(array[left] > array[right]) {
+            swap(array,left,right);
+        }
+    }
+    public static void swap(int[] array,int i,int j) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
+
+
+    public static void quickSort1(int[] array) {
+        Stack<Integer> stack = new Stack<>();
+
+        int left = 0;
+        int right = array.length-1;
+
+        int par = partition(array,left,right);
+        if(par > left+1) {
+            stack.push(par-1);
+            stack.push(left);
+
+        }
+        if(par < right-1) {
+            stack.push(right);
+            stack.push(par+1);
+        }
+
+       while (!stack.empty()) {
+           left = stack.pop();
+           right = stack.pop();
+           par = partition(array,left,right);
+           if(par > left+1) {
+               stack.push(par-1);
+               stack.push(left);
+
+           }
+           if(par < right-1) {
+               stack.push(right);
+               stack.push(par+1);
+           }
+       }
+    }
+
+
+
+    //归并排序
+    public static void mergeSort(int[] array) {
+        int low = 0;
+        int high = array.length-1;
+        mergeSortInternal(array,low,high);
+    }
+    public static void mergeSortInternal(int[] array,int low,int high) {
+        //分解
+        if(low >= high) {
+            return;
+        }
+        int mid = (low+high)/2;
+        mergeSortInternal(array,low,mid);
+        mergeSortInternal(array,mid+1,high);
+        //合并
+        merge(array,low,mid,high);
+    }
+    //归并
+    public static void merge(int[] array,int low,int mid,int high) {
+        int s1 = low;
+        int s2 = mid+1;
+        int len = high-low+1;
+        int[] ret = new int[len];
+        int i = 0;//
+        while (s1 <= mid &&s2 <=high) {
+            if(array[s1] <= array[s2]) {
+                ret[i++] = array[s1++];
+            }else {
+                ret[i++] = array[s2++];
+            }
+        }
+        while (s1 <= mid) {
+            ret[i++] = array[s1++];
+
+        }
+        while (s2 <= high) {
+            ret[i++] = array[s2++];
+        }
+        for (int j = 0; j < ret.length; j++) {
+            array[j+low] = ret[j];
+        }
+    }
+
+
     public static void main(String[] args) {
         int[] array = {4,6,1,3,8,2,9,5};
-        shellSort(array);
+//        shellSort(array);
+//        System.out.println(Arrays.toString(array));
+//        quickSort(array);
+////        System.out.println(Arrays.toString(array));
+//        quickSort1(array);
+//        System.out.println(Arrays.toString(array));
+        mergeSort(array);
         System.out.println(Arrays.toString(array));
     }
 }
