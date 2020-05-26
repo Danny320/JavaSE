@@ -13,13 +13,12 @@ import java.util.Stack;
 public class TestDemo {
 
     /**
+     * 冒泡排序
      * 时间复杂度：O(n^2)
      * 空间复杂度：O(1)
      * 稳定性：稳定的排序
-     *
      * @param array
      */
-    //冒泡排序
     public static void bubbleSort(int[] array) {
         boolean flag = false;
         for (int i = 0; i < array.length - 1; i++) {
@@ -65,13 +64,13 @@ public class TestDemo {
     }
 
     /**
+     * 堆排
      * 时间复杂度：O(nlogn)   不管有序还是无序都是
      * 空间复杂度：O(1)
      * 稳定性：不稳定
      *
      * @param array
      */
-    //堆排
     public static void heapSort(int[] array) {
         creatHeap(array);
         int end = array.length - 1;
@@ -86,15 +85,12 @@ public class TestDemo {
 
 
     /**
+     * 选择排序
      * 时间复杂度：O(n^2)
      * 空间复杂度：O(1)
      * 稳定性：不稳定排序
-     *
      * @param array
      */
-    //时间复杂度：O(n^2)
-    //空间复杂度：O(1)
-    //选择排序
     public static void selectSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
@@ -108,7 +104,13 @@ public class TestDemo {
     }
 
 
-    //希尔排序
+    /**
+     * 希尔排序
+     * 时间复杂度：最好O(n),平均O(n^1.3),最坏O(n^2)
+     * 空间复杂度：O(1)
+     * @param array
+     * @param gap
+     */
     public static void shell(int[] array, int gap) {
         int tmp = 0;
         for (int i = gap; i < array.length; i++) {
@@ -127,16 +129,22 @@ public class TestDemo {
             array[j + gap] = tmp;
         }
     }
-
+    //希尔排序
     public static void shellSort(int[] array) {
         int[] drr = {5, 3, 1};
+        //先将数组分为五组，在分为三组，最后一组
         for (int i = 0; i < drr.length; i++) {
-            shell(array, drr[i]);
+            shell(array, drr[i]);//各个组内根据直接插入排序进行排序
         }
     }
 
 
-    //直接插入排序
+    /**
+     * 直接插入排序
+     * 时间复杂度：最好O(n),平均O(n^2),最坏O(n^2)
+     * 空间复杂度：O(1)
+     * @param array
+     */
     public static void insertSort(int[] array) {
         int tmp = 0;
         for (int i = 1; i < array.length; i++) {
@@ -157,37 +165,45 @@ public class TestDemo {
     }
 
 
+
+    /**
+     * 快速排序
+     * 时间复杂度：nlogn
+     * 空间复杂度：logn
+     * @param array
+     */
+    public static void quickSort(int[] array) {
+        quick(array, 0, array.length - 1);
+    }
+    public static void quick(int[] array, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int par = partition(array, left, right);//求基准值
+        quick(array, left, par - 1);//递归遍历基准值得左边
+        quick(array, par + 1, right);//递归遍历基准值得右边
+    }
     public static int partition(int[] array, int low, int high) {
-        int tmp = array[low];
+        int tmp = array[low];//基准数为第一个元素
+        //循环结束条件low和high相遇
         while (low < high) {
+            //从后往前找第一个比tmp小的数
             while (low < high && array[high] >= tmp) {
                 high--;
             }
-            array[low] = array[high];
+            array[low] = array[high];//放到low的位置
+            //从前往后找第一个比tmp大的数
             while (low < high && array[low] <= tmp) {
                 low++;
             }
-            array[high] = array[low];
+            array[high] = array[low];//放到high的位置
         }
         array[high] = tmp;
         return high;
     }
 
-    public static void quick(int[] array, int left, int right) {
-        if (left >= right) {
-            return;
-        }
 
-        int par = partition(array, left, right);
-        quick(array, left, par - 1);
-        quick(array, par + 1, right);
-    }
-
-    //时间复杂度：nlogn
-    //空间复杂度：logn
-    public static void quickSort(int[] array) {
-        quick(array, 0, array.length - 1);
-    }
+    //三数取中
 
     public static void three_num_mid(int[] array, int left, int right) {
         //array[mid] <= array[left] <= array[high]
