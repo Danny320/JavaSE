@@ -1,4 +1,5 @@
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created with Intellij IDEA
@@ -10,46 +11,68 @@ import java.util.Arrays;
  * @time: 22:25
  **/
 class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        HashMap<String,Integer> map = new HashMap<>();
+        for (int i = 0; i < words.length;i++) {
+
+            if(!map.containsKey(words[i])) {
+                map.put(words[i],1);
+            }else {
+                int v = map.get(words[i]);
+                map.put(words[i],v+1);
+            }
+        }
+        List<String> list = new ArrayList<>(map.keySet());
+        Collections.sort(list,new Comparator<String>() {
+                    @Override
+                    public int compare(String o1, String o2) {
+                        if (o1.equals(o2)) {
+                            return o1.compareTo(o2);
+                        } else {
+                            return map.get(o2) - map.get(o1);
+                        }
+                    }
+                }
+        );
+        return list.subList(0,k);
+    }
+
+
     public int compareVersion(String version1, String version2) {
-      String[] s1 = version1.split(".");
-      String[] s2 = version2.split(".");
-      int len1 = s1.length;
-      int len2 = s2.length;
-      if(len1 < len2) {
-          s1 = Arrays.copyOf(s1,s2.length);
-          for(int i = 0; i < s1.length; i++) {
-              if(s1[i] == null) {
-                  s1[i] = "0";
-              }
+      String[] s1 = version1.split("\\.");
+      String[] s2 = version2.split("\\.");
+      for(int i = 0; i <Math.max(s1.length,s2.length); i++) {
+          int a = ( i < s1.length ? Integer.valueOf(s1[i]): 0);
+          int b = ( i < s2.length ? Integer.valueOf(s2[i]): 0);
+          if(a < b) {
+             return -1;
+          }else if (a > b) {
+              return 1;
           }
       }
-        if(len1 > len2) {
-            s2 = Arrays.copyOf(s2,s1.length);
-            for(int i = 0; i < s2.length; i++) {
-                if(s2[i] == null) {
-                    s2[i] = "0";
-                }
-            }
-        }
-        for(int i = 0; i < s1.length; i++) {
+      return 0;
+    }
 
-            if (s1[i].compareTo(s2[i]) > 0) {
-                return 1;
-            }
-            if (s1[i].compareTo(s2[i]) < 0) {
-                return -1;
-            }
-        }
-        System.out.println(s1.toString());
-        System.out.println(s2.toString());
 
-        return 0;
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        List<Integer> ret = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        Collections.sort(ret, (a, b) -> a == b ? a - b : Math.abs(a-x) - Math.abs(b-x));
+        ret = ret.subList(0, k);
+        Collections.sort(ret);
+        return ret;
     }
 }
 public class TestDemo5 {
+
     public static void main(String[] args) {
-        String s1 = "1.2.4";
-        String s2 = "1.3";
+        String[] s1 ={"i", "love", "leetcode", "i", "love", "coding"};
+        Solution solution = new Solution();
+       System.out.println( solution.topKFrequent(s1,2));
+
+    }
+    public static void main1(String[] args) {
+        String s1 = "1";
+        String s2 = "0";
         Solution solution = new Solution();
        System.out.println( solution.compareVersion(s1,s2));
     }
