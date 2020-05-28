@@ -14,7 +14,6 @@ class Solution {
     public List<String> topKFrequent(String[] words, int k) {
         HashMap<String,Integer> map = new HashMap<>();
         for (int i = 0; i < words.length;i++) {
-
             if(!map.containsKey(words[i])) {
                 map.put(words[i],1);
             }else {
@@ -26,7 +25,7 @@ class Solution {
         Collections.sort(list,new Comparator<String>() {
                     @Override
                     public int compare(String o1, String o2) {
-                        if (o1.equals(o2)) {
+                        if (map.get(o1).equals(map.get(o2))) {
                             return o1.compareTo(o2);
                         } else {
                             return map.get(o2) - map.get(o1);
@@ -55,16 +54,36 @@ class Solution {
 
 
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
-        List<Integer> ret = Arrays.stream(arr).boxed().collect(Collectors.toList());
-        Collections.sort(ret, (a, b) -> a == b ? a - b : Math.abs(a-x) - Math.abs(b-x));
-        ret = ret.subList(0, k);
-        Collections.sort(ret);
-        return ret;
+        List<Integer> ret = new ArrayList<>();
+        for(int i = 0; i < arr.length;i++) {
+            ret.add(arr[i]);
+        }
+        ret.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+              return Math.abs(o1-x)-Math.abs(o2-x);
+            }
+        });
+        List<Integer> tmp = ret.subList(0,k);
+        tmp.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1-o2;
+            }
+        });
+        return tmp;
     }
 }
 public class TestDemo5 {
 
     public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5,6,7,8,9};
+        Solution solution = new Solution();
+        List<Integer> list = solution.findClosestElements(arr,4,5);
+        System.out.println(list);
+    }
+
+    public static void main2(String[] args) {
         String[] s1 ={"i", "love", "leetcode", "i", "love", "coding"};
         Solution solution = new Solution();
        System.out.println( solution.topKFrequent(s1,2));
