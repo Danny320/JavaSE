@@ -1,4 +1,6 @@
 import java.util.Objects;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * Created with Intellij IDEA
@@ -79,7 +81,7 @@ public class HashBuck2<K,V> {
         Person person2 = new Person(12);
         System.out.println(person1.hashCode());
         System.out.println(person2.hashCode());
-
+        Queue<Integer> queue = new PriorityQueue<>((o1, o2) -> o2-o1);
         System.out.println(person1.equals(person2));
     }
 }

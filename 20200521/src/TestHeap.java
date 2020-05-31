@@ -58,7 +58,7 @@ public class TestHeap {
         }
     }
 
-    //添加
+    //添加元素
     public void push(int val) {
         //0、堆是否是满的--》扩容
         if(isFull()) {
@@ -89,6 +89,7 @@ public class TestHeap {
     }
 
 
+    //删除元素
     public void pop() {
         if(this.usedSize == 0) {
             return;
@@ -99,11 +100,13 @@ public class TestHeap {
         this.usedSize--;
         adjustDown( this.elem[0],this.usedSize);
     }
+    //判断是否为空
     public boolean isEmpty() {
         return this.usedSize == 0;
     }
 
 
+    //查看优先级最高的元素
     public int peek() {
         if(isEmpty()) {
             return -1;

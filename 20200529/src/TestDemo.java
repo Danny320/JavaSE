@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * Created with Intellij IDEA
  *
@@ -7,6 +9,66 @@
  * @Date: 2020-05-29 19:48
  * @time: 19:48
  **/
+class Solution {
+    public char findTheDifference(String s, String t) {
+        HashMap<Character,Integer> map1 = new HashMap<>();
+        HashMap<Character,Integer> map2 = new HashMap<>();
+        char[] s1 = s.toCharArray();
+        char[] t1 = t.toCharArray();
+        for(char ch:s1) {
+            if(!map1.containsKey(ch)){
+                map1.put(ch,1);
+            }else {
+                int v = map1.get(ch);
+                map1.put(ch,v+1);
+            }
+        }
+        for(char ch:t1) {
+            if(!map2.containsKey(ch)){
+                map2.put(ch,1);
+            }else {
+                int v = map2.get(ch);
+                map2.put(ch,v+1);
+            }
+        }
+        int i = 0;
+        for( ; i< t.length();i++) {
+            char ch = t.charAt(i);
+            if(map1.get(ch) != map2.get(ch)) {
+                break;
+            }
+        }
+        return t.charAt(i);
+    }
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        for (int i = 0; i < nums.length; i++) {
+            for(int j = 1; j < nums.length; j++) {
+                if(nums[i] == nums[j] && Math.abs(i-j) <= k) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean containsDuplicate(int[] nums) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int n: nums) {
+            if(!map.containsKey(n)) {
+                map.put(n,1);
+            }else {
+                int v = map.get(n);
+                map.put(n,v+1);
+            }
+        }
+        for (int n:nums) {
+            if(map.get(n) >= 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 class HashBuck {
 
     static class Node {
@@ -83,5 +145,9 @@ public class TestDemo {
         }
         hashBuck.put(11,101);
         System.out.println(hashBuck.get(11));
+
+
+        HashMap<Character,Integer> map = new HashMap<>();
+
     }
 }
