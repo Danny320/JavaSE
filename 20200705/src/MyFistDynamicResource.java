@@ -21,11 +21,11 @@ public class MyFistDynamicResource extends HttpServlet {
         String wd = req.getParameter("wd");
 
         //2.返回的Content—Type 是 text/html: 字符集编码是 utf-8
-        resp.setContentType("text/html:charset = utf-8");
+        resp.setContentType("text/html: charset=utf-8");
         PrintWriter writer = resp.getWriter();
 
         //3.输出的响应的内容
-        writer.println("<h1>我是/s资源</h1>");
-        writer.println("<p>用户要查找的关键字是："+ wd +"</p>");
+        //writer.println("<h1>我是/s资源</h1>");
+        writer.println("<p>Hello"+ wd +"</p>");
     }
 }
