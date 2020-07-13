@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <servlet>
-        <servlet-name>status</servlet-name>
-        <servlet-class>StatusServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>status</servlet-name>
-        <url-pattern>/status</url-pattern>
-    </servlet-mapping>
+    <!--<servlet>-->
+        <!--<servlet-name>status</servlet-name>-->
+        <!--<servlet-class>StatusServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>status</servlet-name>-->
+        <!--<url-pattern>/status</url-pattern>-->
+    <!--</servlet-mapping>-->
     <servlet>
         <servlet-name>redirect</servlet-name>
         <servlet-class>RedirectServlet</servlet-class>
@@ -19,5 +19,13 @@
     <servlet-mapping>
         <servlet-name>redirect</servlet-name>
         <url-pattern>//redirect</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>setcookie</servlet-name>
+        <servlet-class>SetCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>setcookie</servlet-name>
+        <url-pattern>//setcookie</url-pattern>
     </servlet-mapping>
 </web-app>
