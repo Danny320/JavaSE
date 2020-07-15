@@ -1,6 +1,6 @@
-package com.ld.model;
+package com.peixinchen.model;
 
-import com.ld.util.DBUtil;
+import com.peixinchen.util.DBUtil;
 
 import java.sql.*;
 
@@ -24,6 +24,26 @@ public class User {
 
                     User user = new User();
                     user.id = r.getInt(1);
+                    user.username = username;
+                    return user;
+                }
+            }
+        }
+    }
+    public static User login(String username, String password) throws SQLException {
+        try (Connection c = DBUtil.getConnection()) {
+            String sql = "SELECT id FROM users WHERE username = ? AND PASSWORD = ?";
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setString(1, username);
+                s.setString(2, password);
+
+                try (ResultSet r = s.executeQuery()) {
+                    if (!r.next()) {
+                        return null;
+                    }
+
+                    User user = new User();
+                    user.id = r.getInt("id");
                     user.username = username;
                     return user;
                 }

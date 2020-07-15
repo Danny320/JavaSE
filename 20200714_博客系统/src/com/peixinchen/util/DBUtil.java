@@ -1,4 +1,4 @@
-package com.ld.util;
+package com.peixinchen.util;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 

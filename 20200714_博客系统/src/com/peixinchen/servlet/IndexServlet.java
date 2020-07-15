@@ -1,6 +1,6 @@
-package com.ld.servlet;
+package com.peixinchen.servlet;
 
-import com.ld.model.User;
+import com.peixinchen.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,3 +51,4 @@ public class IndexServlet extends HttpServlet {
         writer.println(htmlContent);
     }
 }
+
