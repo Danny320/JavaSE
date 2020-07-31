@@ -1,5 +1,4 @@
 import com.peixinchen.util.DBUtil;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Article {
+public class Articles {
     public int authorId;
     public String authorUsername;
     public int id;
@@ -48,8 +47,8 @@ public class Article {
         }
     }
 
-    public static List<Article> list() throws SQLException {
-        List<Article> articleList = new ArrayList<>();
+    public static List<Articles> list() throws SQLException {
+        List<Articles> articlesList = new ArrayList<>();
 
         try (Connection c = DBUtil.getConnection()) {
             String sql = "select\n" +
@@ -64,19 +63,19 @@ public class Article {
             try (PreparedStatement s = c.prepareStatement(sql)) {
                 try (ResultSet r = s.executeQuery()) {
                     while (r.next()) {
-                        Article article = new Article();
-                        article.id = r.getInt("id");
-                        article.authorId = r.getInt("author_id");
-                        article.authorUsername = r.getString("author_username");
-                        article.title = r.getString("title");
-                        article.publishedAt = r.getString("published_at");
+                        Articles articles = new Articles();
+                        articles.id = r.getInt("id");
+                        articles.authorId = r.getInt("author_id");
+                        articles.authorUsername = r.getString("author_username");
+                        articles.title = r.getString("title");
+                        articles.publishedAt = r.getString("published_at");
 
-                        articleList.add(article);
+                        articlesList.add(articles);
                     }
                 }
             }
 
-            return articleList;
+            return articlesList;
         }
     }
 }
