@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="maventest" />
+        <module name="stu-info-sys" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="maventest" target="1.8" />
+      <module name="stu-info-sys" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
