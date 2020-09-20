@@ -250,4 +250,33 @@ public class BinaryTree {
         }
         return ret;
     }
+
+
+    boolean isCompleteTree(Node root) {
+        if(root == null) {
+            return true;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()) {
+            Node cur = queue.poll();
+            if(cur != null){
+                queue.offer(cur.left);
+                queue.offer(cur.right);
+            }else {
+                break;
+            }
+        }
+
+        //看下队列里面是否都是空
+        while(!queue.isEmpty()) {
+            Node cur2 = queue.peek();
+            if(cur2 != null) {
+                return false;
+            }else {
+                queue.poll();
+            }
+        }
+        return true;
+    }
 }

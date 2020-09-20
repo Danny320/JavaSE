@@ -58,8 +58,27 @@ public class TestDemo {
     }
 
     public static void creatHeap(int[] array) {
-        for (int i = (array.length - 1 - 1) / 2; i >= 0; i++) {
+        for (int i = (array.length - 1 - 1) / 2; i >= 0; i--) {
             adjustDown(array, i, array.length);
+        }
+    }
+
+    public static void adjustDown1(int[] array, int root, int len) {
+        int parent = root;
+        int child = 2*parent+1;
+        while(child < len) {
+            if(child+1 < len && array[child] < array[child+1]) {
+                child++;
+            }
+            if(array[parent] <array[child]) {
+                int tmp = array[parent];
+                array[parent] = array[child];
+                array[child] = tmp;
+                parent = child;
+                child = parent*2+1;
+            }else {
+                break;
+            }
         }
     }
 
@@ -108,6 +127,7 @@ public class TestDemo {
      * 希尔排序
      * 时间复杂度：最好O(n),平均O(n^1.3),最坏O(n^2)
      * 空间复杂度：O(1)
+     * 稳定性：不稳定
      * @param array
      * @param gap
      */
@@ -129,6 +149,8 @@ public class TestDemo {
             array[j + gap] = tmp;
         }
     }
+
+
     //希尔排序
     public static void shellSort(int[] array) {
         int[] drr = {5, 3, 1};
@@ -143,6 +165,7 @@ public class TestDemo {
      * 直接插入排序
      * 时间复杂度：最好O(n),平均O(n^2),最坏O(n^2)
      * 空间复杂度：O(1)
+     * 稳定性：稳定
      * @param array
      */
     public static void insertSort(int[] array) {
@@ -164,6 +187,23 @@ public class TestDemo {
         }
     }
 
+
+    public static void insertSort1(int[] array) {
+        int tmp = 0;
+        for(int i = 1; i < array.length; i++) {
+            int j = i-1;
+            tmp = array[i];
+            for(;j >=0; j--) {
+                if(array[j] > tmp) {
+                    array[j+1] = array[j];
+                }else {
+                    break;
+                }
+            }
+            array[j+1] = tmp;
+        }
+
+    }
 
 
     /**
@@ -286,7 +326,7 @@ public class TestDemo {
         int s2 = mid + 1;
         int len = high - low + 1;
         int[] ret = new int[len];
-        int i = 0;//
+        int i = 0;//表示ret数组的下标
         while (s1 <= mid && s2 <= high) {
             if (array[s1] <= array[s2]) {
                 ret[i++] = array[s1++];

@@ -75,6 +75,108 @@ public class Main {
         System.out.println(count);
     }
 
+//水仙花数
+    public static void main6(String[] args) {
+        for(int i = 0; i <1000; i++) {
+            int count = 0;
+            int tmp = i;
+            while(tmp != 0) {
+                tmp /= 10;
+                count++;
+            }
+            tmp = i;
+            int sum = 0;
+            while(tmp != 0) {
+                sum += Math.pow(tmp%10,count);
+                tmp /= 10;
+            }
+            if(sum == i) {
+                System.out.print(sum + " ");
+            }
+        }
+    }
+
+    //计算分数的值
+    public static void main7(String[] args) {
+        double i = 0.0;
+        double sum = 0.0;
+        int flag = -1;
+        for( i = 1.0; i < 100.0; i++) {
+            flag = -flag;
+            sum += (1/i)*flag;
+        }
+        System.out.println(sum);
+    }
 
 
+    //求两个数的最大公约数
+    public static void main8(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int tmp = a>b?b:a;
+        while (a%b != 0) {
+            tmp = a%b;
+            a = b;
+            b = tmp;
+        }
+        System.out.println("最大公约数为;"+tmp);
+    }
+
+
+    //求一个整数，在内存当中存储时，二进制1的个数
+    public static void main9(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 0;
+        for(int i = 0; i < 32; i++) {
+            if(((n>>i)&1)==1) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
+
+    //获取一个二进制序列中所有的偶数位和奇数位，分别输出二进制序列
+    public static void main10(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        for(int i =30; i>=0; i-=2) {
+            int tmp = (num>>i)&1;
+            System.out.print(tmp);
+        }//偶数位
+        System.out.println();
+        for(int i = 31; i>=1; i-=2) {
+            int tmp = (num>>i)&1;
+            System.out.print(tmp);
+        }
+    }
+
+
+    //输出一个整数的每一位
+    public static void main11(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        print(n);
+    }
+    public static void print(int n) {
+        if(n >9) {
+            print(n/10);
+        }
+        System.out.println(n%10);
+    }
+
+
+    //输出乘法口诀表
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int line = sc.nextInt();
+        for(int i = 1; i<line; i++) {
+            for(int j = 1; j <= i; j++) {
+                System.out.print(j+"*"+i+"="+i*j+" ");
+            }
+            System.out.println();
+        }
+    }
 }

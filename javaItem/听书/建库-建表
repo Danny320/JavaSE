@@ -1,0 +1,4 @@
+create database hjb2_tingshu charset utf8mb4;
+
+use hjb2_tingshu;
+
