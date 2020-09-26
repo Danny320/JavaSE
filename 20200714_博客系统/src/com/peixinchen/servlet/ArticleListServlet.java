@@ -17,10 +17,14 @@ import java.util.List;
 @WebServlet("/api/article-list.json")
 public class ArticleListServlet extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 1. 获取文章列表
-        List<Article> articleList = Articles.list();
-        articleList = Articles.list();
+        List<Article> articleList = null;
+        try {
+            articleList = Article.list();
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        }
         // 2. 将文章列表转换成 JSON 字符串
         String jsonText = translateToJSON(articleList);
         // 3. 写入 response

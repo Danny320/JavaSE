@@ -38,6 +38,11 @@ public class PublishHtmlServlet extends HttpServlet {
                 "            <label for=\"content\">正文</label>\n" +
                 "            <textarea id=\"content\" name=\"content\"></textarea>\n" +
                 "        </div>\n" +
+                "        <div>\n"+
+                "            <label for=\"image\">图片</label>\n" +
+                "          <input type=\"file\" id=\"image\" name=\"image\">"+
+                "         </div>\n"+
+
                 "        \n" +
                 "        <div>\n" +
                 "            <button type=\"submit\">发表</button>\n" +
