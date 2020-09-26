@@ -25,7 +25,7 @@ public class MyFistDynamicResource extends HttpServlet {
         PrintWriter writer = resp.getWriter();
 
         //3.输出的响应的内容
-        //writer.println("<h1>我是/s资源</h1>");
+        writer.println("<h1>我是/s资源</h1>");
         writer.println("<p>Hello"+ wd +"</p>");
     }
 }

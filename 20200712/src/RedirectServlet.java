@@ -9,7 +9,7 @@ import java.io.IOException;
  * @author LD
  * @date 2020/7/12 23:10
  */
-
+@WebServlet("/redirect")
 public class RedirectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
